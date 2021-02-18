@@ -34,18 +34,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        firstPlayer = getIntent().getStringExtra(StartActivity.Name1);
+        secondPlayer = getIntent().getStringExtra(StartActivity.Name2);
+
+        instantiateVariables();
+        setLayoutWithListeners();
+
         if(savedInstanceState!=null) {
             currentChance = savedInstanceState.getInt("current");
             board = (int[][]) savedInstanceState.getSerializable("board");
 
             setBoard();
-        }
-        else {
-            firstPlayer = getIntent().getStringExtra(StartActivity.Name1);
-            secondPlayer = getIntent().getStringExtra(StartActivity.Name2);
-
-            instantiateVariables();
-            setLayoutWithListeners();
         }
     }
 
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 } else {
                     btns.get(p).setBackgroundColor(playerColor.get(board[i][j]));
+                    btns.get(p).setText(chances.get(board[i][j]));
                 }
 
             }
@@ -215,3 +215,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
+

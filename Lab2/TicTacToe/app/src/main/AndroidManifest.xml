@@ -17,8 +17,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
+        <activity android:name=".MainActivity">
 
         </activity>
     </application>
