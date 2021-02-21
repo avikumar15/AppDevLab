@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dice Roll</string>
+    <string name="generate_random">GENERATE RANDOM</string>
+    <string name="go">go</string>
+    <string name="second_number">Second Player</string>
+    <string name="first_number">First Player</string>
+</resources>
