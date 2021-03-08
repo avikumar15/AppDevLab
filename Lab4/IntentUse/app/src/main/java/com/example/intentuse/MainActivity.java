@@ -3,14 +3,18 @@ package com.example.intentuse;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import static com.example.intentuse.Utils.NAME_KEY;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvName, tvRoll;
     RadioButton rbCall, rbWebPage, rbYouTube;
     Button btnBack, btnGo;
+    EditText etMessage;
     Integer chosenOption = -1;
     ArrayList<Intent> intents = new ArrayList<>();
 
@@ -44,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             createToast(this, "Welcome "+name+"!\nRoll: "+roll);
 
             intents.add(new Intent(this, StartActivity.class));
-            intents.add(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:04312503000")));
-            intents.add(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.nitt.edu/")));
-            intents.add(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCEPOEe5azp3FbUjvMwttPqw")));
+            intents.add(new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:")));
+            intents.add(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:")));
+            intents.add(new Intent(Intent.ACTION_WEB_SEARCH));
 
         } else {
             createToast(this, "Something went wrong");
@@ -57,12 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvName = findViewById(R.id.tvName);
         tvRoll = findViewById(R.id.tvRoll);
 
-        rbCall = findViewById(R.id.rbCall);
-        rbWebPage = findViewById(R.id.rbWebPage);
-        rbYouTube = findViewById(R.id.rbYoutube);
+        rbCall = findViewById(R.id.rbMessage);
+        rbWebPage = findViewById(R.id.rbMail);
+        rbYouTube = findViewById(R.id.rbGoogle);
 
         btnBack = findViewById(R.id.btnBack);
         btnGo = findViewById(R.id.btnGo);
+        etMessage = findViewById(R.id.etMessage);
 
         rbCall.setOnClickListener(this);
         rbWebPage.setOnClickListener(this);
@@ -75,13 +81,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rbCall:
+            case R.id.rbMessage:
                 chosenOption = 1;
                 break;
-            case R.id.rbWebPage:
+            case R.id.rbMail:
                 chosenOption = 2;
                 break;
-            case R.id.rbYoutube:
+            case R.id.rbGoogle:
                 chosenOption = 3;
                 break;
             case R.id.btnBack:
@@ -94,10 +100,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void letsGo() {
-        if(chosenOption==-1) {
-            createToast(this, "Chose an option and then click submit");
+
+        String message = etMessage.getText().toString();
+
+        if(message.length()==0) {
+            createToast(this, "Message cannot be empty");
             return;
         }
+
+        switch (chosenOption) {
+            case -1:
+                createToast(this, "Chose an option and then click submit");
+                return;
+            case 1:
+                intents.get(1).putExtra("sms_body", message);
+                break;
+            case 2:
+                intents.get(2).putExtra(Intent.EXTRA_TEXT, message);
+                break;
+            case 3:
+                intents.get(3).putExtra(SearchManager.QUERY, message);
+                break;
+        }
+
         startActivity(intents.get(chosenOption));
     }
 

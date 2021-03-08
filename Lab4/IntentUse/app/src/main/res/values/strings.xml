@@ -5,4 +5,7 @@
     <string name="next">Next</string>
     <string name="username">name</string>
     <string name="roll_number">Roll Number</string>
+    <string name="send_message">Send Message</string>
+    <string name="mail_message">Mail message</string>
+    <string name="google_search_message">Google search message</string>
 </resources>

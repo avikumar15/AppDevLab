@@ -1,16 +1,12 @@
 package com.example.intentuse;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.intentuse.MainActivity;
-import com.example.intentuse.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.intentuse.Utils.NAME_KEY;
 import static com.example.intentuse.Utils.ROLL_KEY;
@@ -40,12 +36,12 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         String name = etName.getText().toString();
         String roll = etRoll.getText().toString();
 
-        if(name.length()==0) {
-            createToast(this,"Name cannot be empty");
+        if (name.length() == 0) {
+            createToast(this, "Name cannot be empty");
             return;
         }
 
-        if(roll.length() != 9) {
+        if (roll.length() != 9) {
             createToast(this, "Roll number should contain 9 digits");
             return;
         }

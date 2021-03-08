@@ -35,8 +35,8 @@
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/horizontalConstraint80"
-        app:layout_constraintGuide_percent="0.80"
+        android:id="@+id/horizontalConstraint70"
+        app:layout_constraintGuide_percent="0.70"
         android:orientation="horizontal"
         />
 
@@ -113,44 +113,78 @@
         android:id="@+id/rg"
         >
         <RadioButton
-            android:id="@+id/rbCall"
+            android:id="@+id/rbMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Call NITT"
+            android:text="@string/send_message"
             android:textColor="#FFFFFF"
             android:buttonTint="#FFFFFF"
             />
         <RadioButton
-            android:id="@+id/rbWebPage"
+            android:id="@+id/rbMail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Visit NITT Webpage"
+            android:text="@string/mail_message"
             android:textColor="#FFFFFF"
             android:buttonTint="#FFFFFF"
             android:layout_marginTop="8dp"
             />
         <RadioButton
-            android:id="@+id/rbYoutube"
+            android:id="@+id/rbGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Visit NITT Youtube"
+            android:text="@string/google_search_message"
             android:textColor="#FFFFFF"
             android:buttonTint="#FFFFFF"
             android:layout_marginTop="8dp"/>
     </RadioGroup>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/horizontalConstraint70"
+        app:layout_constraintLeft_toLeftOf="@id/etMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/tvUsername"
+        android:textAllCaps="true"
+        android:text="MESSAGE"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:fontFamily="sans-serif-black"
+        >
+
+    </TextView>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/tvUsername"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/etMessage"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#80000000"
+        android:background="@drawable/selector_edittext"
+        android:textColor="#FFFFFF"
+        />
 
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/verticalConstraint50"
-        app:layout_constraintTop_toBottomOf="@id/horizontalConstraint80"
+        app:layout_constraintTop_toBottomOf="@id/etMessage"
         android:background="@drawable/round_button"
         android:textColor="#FF7300"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:text="BACK"
         android:id="@+id/btnBack"
+        android:layout_marginTop="24dp"
         >
     </Button>
 
@@ -159,7 +193,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/verticalConstraint50"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontalConstraint80"
+        app:layout_constraintTop_toBottomOf="@id/etMessage"
+        android:layout_marginTop="24dp"
         android:background="@drawable/round_button"
         android:textColor="#FF7300"
         android:layout_marginStart="22dp"
