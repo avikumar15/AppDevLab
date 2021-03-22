@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">IntentExample</string>
+    <string name="mail">Mail</string>
+    <string name="notes">Notes</string>
+    <string name="video_capture">Video Capture</string>
+    <string name="alarm">Alarm</string>
+    <string name="music">Music</string>
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FF7300"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalConstraint30"
+        app:layout_constraintGuide_percent="0.3"
+        android:orientation="horizontal"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalConstraint40"
+        app:layout_constraintGuide_percent="0.40"
+        android:orientation="horizontal"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint50"
+        app:layout_constraintGuide_percent="0.50"
+        android:orientation="vertical"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalConstraint70"
+        app:layout_constraintGuide_percent="0.70"
+        android:orientation="horizontal"
+        />
+
+    <View
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalConstraint30"
+        android:background="#FFFFFF"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="#FF7300"
+        >
+    </View>
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalConstraint30"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/tvRoll"
+        android:background="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF7300"
+        android:text="Welcome User!"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:fontFamily="sans-serif-black"
+        >
+    </TextView>
+
+    <RadioGroup
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/horizontalConstraint40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/rg"
+        >
+        <RadioButton
+            android:id="@+id/rbAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:textSize="20sp"
+            />
+        <RadioButton
+            android:id="@+id/rbMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/music"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            />
+        <RadioButton
+            android:id="@+id/rbMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mail"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint50"
+        app:layout_constraintTop_toBottomOf="@id/horizontalConstraint70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/round_button"
+        android:textColor="#FF7300"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="Exit"
+        android:id="@+id/btnBack"
+        >
+    </Button>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalConstraint70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/round_button"
+        android:textColor="#FF7300"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="Lets Go"
+        android:id="@+id/btnGo"
+        >
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
