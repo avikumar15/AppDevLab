@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF7300">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalConstraint30"
+        app:layout_constraintGuide_percent="0.1"
+        android:orientation="horizontal"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint20"
+        app:layout_constraintGuide_percent="0.1"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint45"
+        app:layout_constraintGuide_percent="0.45"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint55"
+        app:layout_constraintGuide_percent="0.55"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint80"
+        app:layout_constraintGuide_percent="0.9"
+        android:orientation="vertical" />
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalConstraint30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/tvFrag"
+        android:textAllCaps="true"
+        android:text="LENGTH"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        >
+    </TextView>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/tvFrag"
+        app:layout_constraintLeft_toLeftOf="@id/etFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/tvOverEt1"
+        android:textAllCaps="true"
+        android:layout_marginTop="20dp"
+        android:text="Value"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:fontFamily="sans-serif-black"
+        >
+
+    </TextView>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/tvOverEt1"
+        app:layout_constraintLeft_toLeftOf="@id/verticalConstraint20"
+        app:layout_constraintRight_toRightOf="@id/verticalConstraint45"
+        android:id="@+id/etFrag"
+        android:layout_marginTop="2dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#80000000"
+        android:inputType="numberDecimal"
+        android:background="@drawable/selector_edittext"
+        android:textColor="#FFFFFF"
+        />
+
+    <Spinner
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/spv"
+        app:layout_constraintStart_toEndOf="@id/verticalConstraint55"
+        app:layout_constraintTop_toTopOf="@id/etFrag"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintBottom_toBottomOf="@id/etFrag"
+        android:background="#25191919"
+        >
+    </Spinner>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintTop_toBottomOf="@id/spv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:id="@+id/rv"
+        android:layout_marginBottom="20dp"
+
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

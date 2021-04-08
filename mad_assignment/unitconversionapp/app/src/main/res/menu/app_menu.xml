@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/lengthItem"
+        android:title="Length"/>
+
+    <item android:id="@+id/areaItem"
+        android:title="Area" />
+
+    <item android:id="@+id/weightItem"
+        android:title="Weight"/>
+
+    <item android:id="@+id/currencyItem"
+        android:title="Currency"/>
+
+    <item android:id="@+id/timeItem"
+        android:title="Time" />
+
+    <item android:id="@+id/exitItem"
+        android:title="Exit" />
+
+</menu>

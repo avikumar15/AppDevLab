@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Unit Conversion App</string>
+
+    <string-array name="length">
+        <item>μm</item>
+        <item>mm</item>
+        <item>m</item>
+        <item>inch</item>
+        <item>yd</item>
+        <item>mi</item>
+    </string-array>
+
+    <string-array name="area">
+        <item>μm2</item>
+        <item>mm2</item>
+        <item>m2</item>
+        <item>inch2</item>
+        <item>yd2</item>
+        <item>mi2</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>μg</item>
+        <item>mg</item>
+        <item>g</item>
+        <item>kg</item>
+        <item>lb</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>INR</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>JPY</item>
+        <item>GBP</item>
+    </string-array>
+
+    <string-array name="time">
+        <item>ms</item>
+        <item>sec</item>
+        <item>mins</item>
+        <item>hours</item>
+    </string-array>
+
+</resources>

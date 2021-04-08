@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF7300"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalConstraint30"
+        app:layout_constraintGuide_percent="0.15"
+        android:orientation="horizontal"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint20"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint45"
+        app:layout_constraintGuide_percent="0.45"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint55"
+        app:layout_constraintGuide_percent="0.55"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalConstraint80"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical" />
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/tvelcome"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="true"
+        android:text="Welcome, Select conversion"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        >
+    </TextView>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/tvelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:id="@+id/tvelcome2"
+        android:textAllCaps="true"
+        android:text="type from menu"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        >
+    </TextView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
+        android:id="@+id/fcv"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintTop_toBottomOf="@id/tvelcome2"
+        >
+
+    </androidx.fragment.app.FragmentContainerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
