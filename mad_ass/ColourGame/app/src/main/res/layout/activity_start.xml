@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity"
+    android:background="#191970"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalConstraint25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalConstraint125"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.125" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontalConstraint50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalConstraint20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalConstraint80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalConstraint125"
+        android:textSize="24sp"
+        android:textColor="#98FB98"
+        android:text="COLOR GUESSING GAME"
+        >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintTop_toTopOf="@id/horizontalConstraint125"
+        app:layout_constraintBottom_toBottomOf="@id/horizontalConstraint25"
+        android:textSize="24sp"
+        android:id="@+id/tvCurrentHighest"
+        android:textColor="#98FB98"
+        android:text="Current Highest: 12"
+        android:textStyle="bold"
+        >
+    </TextView>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_buttons"
+        app:layout_constraintBottom_toTopOf="@id/horizontalConstraint50"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        android:id="@+id/btn1"
+        android:text="Game1"
+        >
+    </Button>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_buttons"
+        app:layout_constraintTop_toTopOf="@id/horizontalConstraint50"
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="28dp"
+        android:id="@+id/btn2"
+        android:text="Game2"
+        >
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
