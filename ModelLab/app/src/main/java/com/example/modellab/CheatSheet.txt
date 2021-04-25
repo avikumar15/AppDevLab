@@ -1,0 +1,342 @@
+1. Radio Group/Checkbox:
+
+Activity:
+
+rbs.add((RadioGroup) view.findViewById(R.id.add));
+rbs.add((RadioGroup) findViewById(R.id.add));
+
+public void onRadioButtonClicked(View view) {
+
+        if(condn) {
+            boolean checked = ((RadioButton) view).isChecked();
+
+            switch (view.getId()) {
+                case R.id.add:
+                    if (checked) {
+                        Log.i(TAG, "Adding numbers");
+                        break;
+                    }
+                case R.id.subtract:
+                    if (checked) {
+                        Log.i(TAG, "Subtracting numbers");
+                        break;
+                    }
+                case R.id.multiply:
+                    if (checked) {
+                        Log.i(TAG, "Multiplying numbers");
+                        break;
+                    }
+                case R.id.divide:
+                    if (checked) {
+                        Log.i(TAG, "Dividing numbers");
+                        break;
+                    }
+            }
+        }
+}
+
+Layout:
+
+<RadioGroup
+        app:layout_constraintStart_toStartOf="@id/verticalConstraint20"
+        app:layout_constraintEnd_toEndOf="@id/verticalConstraint80"
+        app:layout_constraintTop_toBottomOf="@id/et2"
+        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/rg"
+        >
+        <RadioButton
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="18sp"
+            />
+
+        <RadioButton
+            android:id="@+id/subtract"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtract"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="18sp"
+            />
+
+        <RadioButton
+            android:id="@+id/multiply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/multiply"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="18sp"
+            />
+
+        <RadioButton
+            android:id="@+id/divide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/divide"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="18sp"
+            />
+
+</RadioGroup>
+
+Checkbox to select deselect
+
+Activity/Fragment:
+
+rbs.add((RadioGroup) view.findViewById(R.id.add));
+rbs.add((RadioGroup) findViewById(R.id.add));
+
+for (int i = 0; i < rbs.size(); i++)
+            rbs.get(i).setOnClickListener(this);
+
+@Override
+    public void onClick(View view) {
+
+        CheckBox checkBox = (CheckBox) view;
+
+        if(checkBox.isChecked()) {
+            courseRegistered.add(checkBox.getText().toString());
+        } else {
+            courseRegistered.remove(checkBox.getText().toString());
+        }
+    }
+
+Layout:
+
+<CheckBox
+        android:id="@+id/rbDSA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DSA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rbAlgorithm" />
+
+2. Intent:
+
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(Name1, et1.getText().toString());
+            intent.putExtra(Name2, et2.getText().toString());
+            startActivity(intent);
+            finish();
+
+3. Intent types:
+
+            intents.add(new Intent(this, StartActivity.class));
+            intents.add(new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:")));
+            intents.add(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:")));
+            intents.add(new Intent(Intent.ACTION_WEB_SEARCH));
+
+            intents.get(1).putExtra("sms_body", message);
+            intents.get(2).putExtra(Intent.EXTRA_TEXT, message);
+            intents.get(3).putExtra(SearchManager.QUERY, message);
+
+            startActivity(intents.get(chosenOption));
+
+            Alarm:
+
+                Intent alarmIntent = new Intent(AlarmClock.ACTION_SET_ALARM);
+
+                alarmIntent.putExtra(AlarmClock.EXTRA_MESSAGE, msg);
+                alarmIntent.putExtra(AlarmClock.EXTRA_HOUR, hour);
+                alarmIntent.putExtra(AlarmClock.EXTRA_MINUTES, min);
+
+                startActivity(alarmIntent);
+
+            Mail:
+
+            Intent mailIntent = new Intent(Intent.ACTION_SENDTO);
+
+            mailIntent.setData(Uri.parse("mailto:"+email));
+            mailIntent.putExtra(Intent.EXTRA_EMAIL, email);
+            mailIntent.putExtra(Intent.EXTRA_SUBJECT, sub);
+            mailIntent.putExtra(Intent.EXTRA_TEXT, body);
+
+            startActivity(mailIntent);
+
+            Music:
+
+            String uri = "spotify:track:3sqRODOZ1Z6hR4F2tnFAlg";
+            Intent musicIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(musicIntent);
+
+            Settings:
+
+            Intent intent = new Intent(Settings.ACTION_SETTINGS);
+            startActivity(intent);
+
+4. Split string
+
+String[] parts = time.split(":");
+
+5. Controlling the settings
+
+https://github.com/avikumar15/AppDevLab/blob/main/Lab6/MenuApp/app/src/main/java/com/example/menuapp/ControlActivity.java
+
+6. Shared Preferences:
+
+Retrieve:
+
+        String name = sharedPref.getString(NAME, "name");
+        String email = sharedPref.getString(EMAIL, "email");
+        String mob = sharedPref.getString(MOBILE, "mobile");
+
+Set:
+
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(NAME, name);
+            editor.putString(EMAIL, email);
+            editor.putString(MOBILE, mob);
+            editor.apply();
+
+7. Set Orientation programmatically:
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+8. DraggableView:
+
+https://github.com/avikumar15/AppDevLab/blob/main/Lab9/ColourGame/app/src/main/java/com/example/colourgame/MainActivity.java
+
+9. Mainfest Orientation/Config
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+
+
+10. Vibrate
+
+vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+vib.vibrate(1000);
+
+11. Handler Time lag
+
+Runnable r = (new Runnable() {
+                   @Override
+                   public void run() {
+                     //Do something after 100ms
+                   }
+                 }, 100);
+final Handler handler = new Handler(Looper.getMainLooper());
+handler.postDelayed(r);
+
+11. SQLite
+
+get Data:
+
+        dbHelper = new DbHelper(this);
+        dbRead = dbHelper.getReadableDatabase();
+
+        Cursor cursor = dbRead.rawQuery("SELECT * FROM "+ ReaderContract.TableEntry.TABLE_NAME, null);
+
+        while(cursor.moveToNext()) {
+
+            String pname, pid, pprice, pmrp;
+
+            pname = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PNAME));
+            pid = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PID));
+            pprice = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PRICE));
+            pmrp = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_MRP));
+
+            productList.add(new ProductModel(pname, pid, pprice, pmrp));
+        }
+        cursor.close();
+        myRecyclerAdapter.notifyDataSetChanged();
+
+edit Data:
+
+Step 1: Find with id:
+
+        Cursor cursor = dbWritable.rawQuery("SELECT * FROM "+ ReaderContract.TableEntry.TABLE_NAME, null);
+
+        boolean flag = false;
+        String pname="", ppid="", pprice="", pmrp="";
+
+        while(cursor.moveToNext()) {
+
+            ppid = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PID));
+            pname = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PNAME));
+            pprice = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_PRICE));
+            pmrp = cursor.getString(
+                    cursor.getColumnIndexOrThrow(ReaderContract.TableEntry.COLUMN_NAME_MRP));
+
+            if(ppid.equals(pid)) {
+                flag = true;
+                break;
+            }
+
+        }
+        cursor.close();
+
+        if(!flag) {
+            createToast(this, "Entry not found with that pid!");
+        } else {
+            createToast(this, "Found! Edit the content.");
+            tvPmrp.setText(pmrp);
+            tvPprice.setText(pprice);
+            tvPid.setText(pid);
+            tvPname.setText(pname);
+        }
+
+Step 2: Edit
+
+        if(tvPid.getText().toString().equals("") ||
+           tvPmrp.getText().toString().equals("") ||
+           tvPname.getText().toString().equals("") ||
+           tvPprice.getText().toString().equals("")) {
+            createToast(this, "Please make sure fields are not empty!");
+            return;
+        } else if(tvPid.length()<3) {
+            createToast(this, "Please ensure the length of ID>=3!");
+            return;
+        }
+
+        dbHelper.update(dbWritable,
+        tvPid.getText().toString(),
+        tvPname.getText().toString(),
+        tvPprice.getText().toString(),
+        tvPmrp.getText().toString());
+
+        createToast(this, "Value Updated!");
+
+Set Data:
+
+        private void addEntry() {
+            if(etProductID.getText().toString().equals("") || etProductName.getText().toString().equals("") ||
+                etPrice.getText().toString().equals("") || etMRP.getText().toString().equals("")) {
+                createToast(this, "Please make sure fields are not empty!");
+                return;
+            } else if(etProductID.length()<3) {
+                createToast(this, "Please ensure the length of ID>=3!");
+                return;
+            }
+
+            dbWrite = dbHelper.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+
+            values.put(ReaderContract.TableEntry.COLUMN_NAME_PID, etProductID.getText().toString());
+            values.put(ReaderContract.TableEntry.COLUMN_NAME_PNAME, etProductName.getText().toString());
+            values.put(ReaderContract.TableEntry.COLUMN_NAME_PRICE, etPrice.getText().toString());
+            values.put(ReaderContract.TableEntry.COLUMN_NAME_MRP, etMRP.getText().toString());
+
+            long newRowId = dbWrite.insert(ReaderContract.TableEntry.TABLE_NAME, null, values);
+
+            if(newRowId != -1) {
+                createToast(this, "Inserted Value. Product is Added!");
+            } else {
+                createToast(this, "Duplicate Product ID. Aborting!");
+            }
+
+        }
