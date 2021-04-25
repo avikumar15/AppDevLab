@@ -340,3 +340,54 @@ Set Data:
             }
 
         }
+
+12. Fragments transaction
+
+private void initFragments() {
+        mFragmentDetails = new FragmentDetails();
+        mFragmentSelection = new FragmentSelection();
+
+        ((FragmentDetails) mFragmentDetails).setInterface(this);
+        ((FragmentSelection) mFragmentSelection).setInterface(this);
+
+        fragments.add(mFragmentDetails);
+        fragments.add(mFragmentSelection);
+    }
+
+transactFragment();
+
+    public void transactFragment() {
+        int mod = currentFragment%2;
+
+        Bundle bundle = new Bundle();
+
+        if(mod==1) {
+            String roll = ((FragmentDetails) mFragmentDetails).getEditTextText();
+            if(roll.equals("")) {
+                Toast.makeText(this, "Roll number can't be empty", Toast.LENGTH_SHORT)
+                        .show();
+                return;
+            }
+            bundle.putString("ROLL_NUMBER", roll);
+        } else if(currentFragment!=0) {
+            ArrayList<String> courseRegistered = ((FragmentSelection) mFragmentSelection)
+                    .getCoursesRegistered();
+
+            for(String s: courseRegistered) {
+                Log.i("TAG", "MainActivity "+s);
+            }
+            if(courseRegistered.size()<3) {
+                Toast.makeText(this, "Please select at least 3 courses and continue", Toast.LENGTH_SHORT)
+                        .show();
+                return;
+            }
+            bundle.putStringArrayList("COURSES", courseRegistered);
+        }
+
+        fragments.get(mod).setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, fragments.get(mod))
+                .commit();
+
+        currentFragment++;
+    }
