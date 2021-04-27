@@ -53,7 +53,7 @@
         android:id="@+id/tvelcome"
         android:layout_marginTop="20dp"
         android:textAllCaps="true"
-        android:text="Welcome, Select conversion"
+        android:text="Welcome, Select"
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ModelLab</string>
+    <string name="appwidget_text">Clock</string>
+    <string name="add_widget">Add widget</string>
+</resources>
